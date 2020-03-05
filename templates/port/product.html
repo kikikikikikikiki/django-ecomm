@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+{% extends "port/header.html" %}
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  </head>
+  <body>
+    <div class="outer">
+    {% if products %}
+    {% for product in products %}
+    {% if forloop.first %}
+    <div id="leftly">
+      <h1>{{ product.product }}</h1>
+      <h2>lorem iupih</h2>
+      <h3>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
+    </div>
+    {% endif %}
+    {% endfor %}
+
+    <div id="rightly" class="container">
+          {% for product in products %}
+          {% if forloop.first %}
+          <div class="productone" >
+            <a class="z-depth-3" href="/{{product.image}}"><img src="/{{product.image}}" alt=""></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            <div class="helo">
+            {% for product in products %}
+            {% if not forloop.first %}
+            <div class="productother" >
+              <a class="z-depth-3" href="/product#{{product.id}}"><img src="/{{product.image}}" alt=""></a>
+            </div>
+            {% endif %}
+            {% endfor %}
+            </div>
+
+
+      </div>
+        {% else %}
+        <h1>NOPE</h1>
+      {% endif %}
+    </div>
+    </div>
+  </body>
+  {% endblock %}
+</html>

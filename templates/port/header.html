@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper">
+        <a href="/" class="brand-logo"style="font-family: 'Righteous', cursive;">HOMEee</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+        </ul>
+      </div>
+      <div class="nav-content">
+      <ul id="navi" class="tabs tabs-transparent">
+        <li><a href="/">HOME</a></li>
+        <li><a href="/shirts/">SHIRTS</a></li>
+        <li><a href="/jumpers/">JUMPERS</a></li>
+      </ul>
+    </div>
+    </nav>
+    {% block content %}
+    {% endblock %}
+  </body>
+</html>

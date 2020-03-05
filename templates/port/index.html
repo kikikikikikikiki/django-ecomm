@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% extends "port/header.html" %}
+{% load staticfiles %}
+
+<html lang="en" dir="ltr">
+{% block content %}
+  <head>
+    <meta charset="utf-8">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static "css/mystyle.css" %}">
+    <!-- Compiled and minified CSS -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   <link href="https://fonts.googleapis.com/css?family=Righteous&display=swap" rel="stylesheet">
+   <!-- Compiled and minified JavaScript -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+      <h1>Index page</h1>
+        {% if products %}
+        {% for product in products %}
+        <div class="product" >
+          <h5>{{product.product}}</h5>
+          <a href="/{{product.product}}"><img src="{{product.image}}" alt=""></a>
+          <h6>{{product.status}}</h6>
+        </div>
+        {% endfor %}
+        {% else %}
+        <h1>NOPE</h1>
+      {% endif %}
+    </div>
+  </body>
+  {% endblock %}
+</html>
